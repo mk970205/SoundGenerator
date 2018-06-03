@@ -3,17 +3,42 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
+    <div style="width: 50%; background-color: antiquewhite">
+      <div style="text-align: center">
+        Frequency: <input type="text" value="440" id="freq">Hz
+      </div>
+      <div>
+        <label for>Volume</label>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="100" value="50" class="slider" id="myRange1"><div id="demo1" style="text-align: center; display: inline;">50</div>
+        </div>
+        <label for>Balance</label>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="100" value="50" class="slider" id="myRange2"><div id="demo2" style="text-align: center; display: inline;">50 | 50</div>
+        </div>
+      </div>
+      <div>
+        <label for>Waveform</label>
+        <form id="wf">
+          <input type="radio" name="waveform" value="sine" checked> Sine<br>
+          <input type="radio" name="waveform" value="square"> Square<br>
+          <input type="radio" name="waveform" value="sawtooth"> Sawtooth<br>
+          <input type="radio" name="waveform" value="triangle"> Triangle
+        </form>
+      </div>
+      <div style="margin-left: 87px">
+          <button type="button" onclick="start()">Play</button>
+          <button type="button" onclick="stop()">Stop</button>
+          <button type="button">Save</button>
+      </div>
+    </div>
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
     </script>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
